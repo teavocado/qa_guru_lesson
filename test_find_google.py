@@ -9,7 +9,7 @@ def config_browser():
     browser.config.window_width = 400
 
 
-def test_find_selen_from_google(open_browser):
+def test_find_selen_from_google(config_browser):
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type('selene').press_enter()
     browser.element('[id="search"]').should(have.text('User-oriented Web UI browser tests in Python'))
@@ -18,4 +18,4 @@ def test_find_selen_from_google(open_browser):
 def test_negative():
     browser.open('https://google.com')
     browser.element('[name="q"]').should(be.blank).type('sdihlshgsldkgh').press_enter()
-    browser.element('[id="search"]').should(have.no.text('Selene:User-oriented Web UI browser tests in Python'))
+    browser.element('[id="res"]').should(have.text('По запросу sdihlshgsldkgh ничего не найдено.'))
