@@ -17,5 +17,5 @@ def test_find_selen_from_google(open_browser):
 
 def test_negative():
     browser.open('https://google.com')
-    browser.element('[name="q"]').should(be.blank).type('selene').press_enter()
+    browser.element('[name="q"]').should(be.blank).type('sdihlshgsldkgh').press_enter()
     browser.element('[id="search"]').should(have.no.text('Selene:User-oriented Web UI browser tests in Python'))
